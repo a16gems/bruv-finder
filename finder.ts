@@ -7,7 +7,7 @@ import * as process from 'process';
 const OUTPUT_FILE = path.join(process.cwd(), 'precalculated-bruv.json');
 const SAVE_INTERVAL = 1; // Сохраняем каждый найденный адрес
 const STATS_SAVE_INTERVAL = 300000; // Сохраняем статистику каждые 5 минут
-const TARGET_SUFFIX = 'uv';
+const TARGET_SUFFIX = 'bruv';
 const PROGRAM_ID = "GsxaG11BPNpbkBkzJgW7GkRRJ3o3bjJEqAqhsv814N2s";
 const BATCH_SIZE = 1000; // Проверяем по 1000 nonce за раз
 
