@@ -7,13 +7,12 @@ import * as process from 'process';
 const OUTPUT_FILE = path.join(process.cwd(), 'precalculated-bruv.json');
 const SAVE_INTERVAL = 1; // Сохраняем каждый найденный адрес
 const STATS_SAVE_INTERVAL = 300000; // Сохраняем статистику каждые 5 минут
-const TARGET_SUFFIX = 'bruv';
+const TARGET_SUFFIX = 'uv';
 const PROGRAM_ID = "GsxaG11BPNpbkBkzJgW7GkRRJ3o3bjJEqAqhsv814N2s";
 const BATCH_SIZE = 1000; // Проверяем по 1000 nonce за раз
 
 // Предварительно вычисляем часто используемые значения
 const TOKEN_MINT_BUFFER = Buffer.from("token_mint");
-const TARGET_SUFFIX_BASE58 = Buffer.from([0x05, 0x15, 0x1d, 0x1c]); // 'bruv' в base58
 
 interface SavedData {
     lastNonce: string;
@@ -97,10 +96,8 @@ async function findAddresses() {
 
             data.stats.totalChecked++;
 
-            // Оптимизированная проверка суффикса
-            const addressBytes = mintPDA.toBytes();
-            const lastFourBytes = addressBytes.slice(-4);
-            if (Buffer.compare(lastFourBytes, TARGET_SUFFIX_BASE58) === 0) {
+            // Простая и надежная проверка суффикса
+            if (mintPDA.toBase58().endsWith(TARGET_SUFFIX)) {
                 console.log(`\n🎯 Found address: ${mintPDA.toBase58()} with nonce: ${currentNonce.toString()}`);
                 
                 data.addresses.push({
