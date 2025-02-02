@@ -100,7 +100,7 @@ async function findAddresses() {
         const now = Date.now();
         if (now - lastProgressUpdate >= 1000) {
             const checksPerSecond = data.stats.totalChecked / ((now - startTime) / 1000);
-            process.stdout.write(`\rChecked: ${data.stats.totalChecked}, Found: ${data.stats.totalFound}, Speed: ${checksPerSecond.toFixed(0)}/s`);
+            console.log(`Checked: ${data.stats.totalChecked}, Found: ${data.stats.totalFound}, Speed: ${checksPerSecond.toFixed(0)}/s`);
             lastProgressUpdate = now;
         }
 
