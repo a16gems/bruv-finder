@@ -5,7 +5,7 @@ import * as path from 'path';
 import * as process from 'process';
 
 const OUTPUT_FILE = path.join(process.cwd(), 'precalculated-bruv.json');
-const SAVE_INTERVAL = 5; // Save every 5 found addresses
+const SAVE_INTERVAL = 1; // Save every 1 found addresses
 const TARGET_SUFFIX = 'bruv';
 const PROGRAM_ID = "GsxaG11BPNpbkBkzJgW7GkRRJ3o3bjJEqAqhsv814N2s";  // Mainnet program ID
 
