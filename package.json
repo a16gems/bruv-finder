@@ -4,7 +4,7 @@
   "description": "Bruv address finder",
   "main": "finder.ts",
   "scripts": {
-    "start": "ANCHOR_PROVIDER_URL=\"https://api.devnet.solana.com\" ANCHOR_WALLET=\"/Users/a16gems/.config/solana/id.json\" ts-node finder.ts"
+    "start": "ANCHOR_PROVIDER_URL=\"https://api.devnet.solana.com\" ANCHOR_WALLET=\"/root/.config/solana/bruv_finder.json\" ts-node finder.ts"
   },
   "dependencies": {
     "@project-serum/anchor": "^0.26.0",
