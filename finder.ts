@@ -2,7 +2,10 @@ import * as anchor from "@project-serum/anchor";
 import { PublicKey } from "@solana/web3.js";
 import * as fs from 'fs';
 import * as path from 'path';
+import { fileURLToPath } from 'url';
 
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 const OUTPUT_FILE = path.join(__dirname, 'precalculated-bruv.json');
 const SAVE_INTERVAL = 5; // Save every 5 found addresses
 const TARGET_SUFFIX = 'bruv';
