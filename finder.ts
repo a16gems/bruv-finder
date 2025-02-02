@@ -72,15 +72,6 @@ async function findAddresses() {
     let lastSaveTime = startTime;
     let lastProgressUpdate = startTime;
 
-    // Handle Ctrl+C
-    process.on('SIGINT', () => {
-        console.log('\nReceived SIGINT. Saving current progress...');
-        data.lastNonce = nonce.toString();
-        data.stats.lastUpdate = new Date().toISOString();
-        saveData(data);
-        process.exit();
-    });
-
     console.log('\nStarting address search...');
     console.log(`Target suffix: ${TARGET_SUFFIX}`);
     console.log('Press Ctrl+C to stop and save progress\n');
